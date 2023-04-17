@@ -1,11 +1,11 @@
 # Final_work
 
 
-1. Задание БД:
-    7. В подключенном MySQL репозитории создать базу данных “Друзья человека”
+## 1. Задание БД:
+    7. В подключенном MySQL репозитории создать базу данных “Друзья человека”  
 CREATE DATABASE mans_friends;
 
-    8.Создать таблицы с иерархией из диаграммы в БД
+    8. Создать таблицы с иерархией из диаграммы в БД  
 USE mans_friends;
 
 CREATE TABLE animals
@@ -19,7 +19,7 @@ VALUES ('Домашние животные'), ('Вьючные животные'
 
 CREATE TABLE pets
 (
-	id INT AUTO_INCREMENT PRIMARY KEY,
+	id INT AUTO_INCREMENT PRIMARY KEY, 
 	animal_kind VARCHAR(30),
 	animal_type_id INT DEFAULT 1,
 	FOREIGN KEY (animal_type_id) REFERENCES animals (id) ON DELETE CASCADE ON UPDATE CASCADE
