@@ -185,41 +185,41 @@ LEFT JOIN animals ON animals.id=pack_animals.animal_type_id;
 
 ## 2. Задание Linux
 1. Используя команду cat в терминале операционной системы Linux, создать два файла Домашние животные (заполнив файл собаками, кошками, хомяками) и Вьючные животными заполнив файл Лошадьми, верблюдами и ослы), а затем объединить их. Просмотреть содержимое созданного файла. Переименовать файл, дав ему новое имя (Друзья человека).   
->irina@irina-linux:~$ cat > 'Домашние животные'  
+>irina@irina-linux:~ cat > 'Домашние животные'  
 собаки  
 кошки  
 хомяки  
-irina@irina-linux:~$ cat 'Домашние животные'  
+irina@irina-linux:~ cat 'Домашние животные'  
 собаки  
 кошки  
-хомяки irina@irina-linux:~$ cat > 'Вьючие животные'  
+хомяки irina@irina-linux:~ cat > 'Вьючие животные'  
 лошади  
 верблюды  
 ослы  
-irina@irina-linux:~$ cat  'Вьючие животные'  
+irina@irina-linux:~ cat  'Вьючие животные'  
 лошади  
 верблюды  
 ослы  
-irina@irina-linux:~$ cat 'Вьючие животные' 'Домашние животные' > 'Животные'   
-irina@irina-linux:~$ cat 'Животные'  
+irina@irina-linux:~ cat 'Вьючие животные' 'Домашние животные' > 'Животные'   
+irina@irina-linux:~ cat 'Животные'  
 лошади  
 верблюды  
 ослы   
 собаки   
 кошки                                                       
-хомяки irina@irina-linux:~$ mv 'Животные' 'Друзья человека'   
+хомяки irina@irina-linux:~ mv 'Животные' 'Друзья человека'   
 2. Создать директорию, переместить файл туда.    
-irina@irina-linux:~$ mkdir animals                                     
-irina@irina-linux:~$ mv 'Друзья человека' animals/'Друзья человека'    
-irina@irina-linux:~$ ls -la animals     
+>irina@irina-linux:~ mkdir animals                                     
+irina@irina-linux:~ mv 'Друзья человека' animals/'Друзья человека'    
+irina@irina-linux:~ ls -la animals     
 итого 12                                          
 drwxrwxr-x  2 irina irina 4096 кра 18 19:04  .      
 drwxr-x--- 26 irina irina 4096 кра 18 19:04  ..        
 -rw-rw-r--  1 irina irina   76 кра 18 19:01 'Друзья человека'                                 
 3. Подключить дополнительный репозиторий MySQL. Установить любой пакет из этого репозитория.     
-irina@irina-linux:~$ sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 3A79BD29                         
-irina@irina-linux:~$ sudo echo 'deb http://repo.mysql.com/apt/ubuntu/ bionic mysql-8.0' > /etc/apt/sources       
-irina@irina-linux:~$ sudo apt update                          
+>irina@irina-linux:~ sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 3A79BD29                         
+irina@irina-linux:~ sudo echo 'deb http://repo.mysql.com/apt/ubuntu/ bionic mysql-8.0' > /etc/apt/sources       
+irina@irina-linux:~ sudo apt update                          
 Сущ:1 http://by.archive.ubuntu.com/ubuntu jammy InRelease                        
 Пол:2 http://by.archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]           
 Пол:3 http://by.archive.ubuntu.com/ubuntu jammy-backports InRelease [108 kB]         
@@ -256,7 +256,7 @@ irina@irina-linux:~$ sudo apt update
 Построение дерева зависимостей… Готово   
 Чтение информации о состоянии… Готово   
 Может быть обновлено 206 пакетов. Запустите «apt list --upgradable» для их показа.  
-irina@irina-linux:~$ sudo apt install mysql-common     
+irina@irina-linux:~ sudo apt install mysql-common     
 Чтение списков пакетов… Готово           
 Построение дерева зависимостей… Готово  
 Чтение информации о состоянии… Готово  
@@ -264,21 +264,21 @@ irina@irina-linux:~$ sudo apt install mysql-common
 mysql-common помечен как установленный вручную.  
 Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 206 пакетов не обновлено.  
 4. Установить и удалить deb-пакет с помощью dpkg.    
-irina@irina-linux:~$ apt download lftp                                                            
+>irina@irina-linux:~ apt download lftp                                                            
 Get:1 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 lftp amd64 4.9.2-1build1 [720 kB]  
 Fetched 720 kB in 0s (3,197 kB/s)   
-irina@irina-linux:~$ sudo dpkg -i lftp_4.9.2-1build1_amd64.deb  
+irina@irina-linux:~ sudo dpkg -i lftp_4.9.2-1build1_amd64.deb  
 (Reading database ... 74009 files and directories currently installed.)  
 Preparing to unpack lftp_4.9.2-1build1_amd64.deb ...   
 Unpacking lftp (4.9.2-1build1) over (4.9.2-1build1) ...   
 Setting up lftp (4.9.2-1build1) ...   
 Processing triggers for man-db (2.10.2-1) ...   
-irina@irina-linux:~$ sudo dpkg -r lftp  
+irina@irina-linux:~ sudo dpkg -r lftp  
 (Reading database ... 74009 files and directories currently installed.)   
 Removing lftp (4.9.2-1build1) ...  
 Processing triggers for man-db (2.10.2 -1) ...  
 5. Выложить историю команд в терминале ubuntu.    
-irina@irina-linux:~$ history   
+>irina@irina-linux:~ history   
   140  cat > 'Домашние животные'   
   141  cat 'Домашние животные'   
   142  cat > 'Вьючие животные'   
