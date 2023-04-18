@@ -181,3 +181,131 @@ SELECT donkeys.name, donkeys.commands, donkeys.birthday, pack_animals.animal_kin
 FROM donkeys  
 LEFT JOIN pack_animals ON pack_animals.id = donkeys.animal_kind_id  
 LEFT JOIN animals ON animals.id=pack_animals.animal_type_id;   
+
+
+
+irina@irina-linux:~$ cat > 'Домашние животные'
+собаки
+кошки
+хомяки ^C
+irina@irina-linux:~$ cat 'Домашние животные'
+собаки
+кошки
+хомяки irina@irina-linux:~$ cat > 'Вьючие животные'
+лошади
+верблюды
+ослы
+^C
+irina@irina-linux:~$ cat  'Вьючие животные'
+лошади
+верблюды
+ослы
+irina@irina-linux:~$ cat 'Вьючие животные' 'Домашние животные' > 'Животные'
+irina@irina-linux:~$ cat 'Животные'
+лошади
+верблюды
+ослы
+собаки
+кошки
+хомяки irina@irina-linux:~$ mv 'Животные' 'Друзья человека'
+irina@irina-linux:~$
+irina@irina-linux:~$ mkdir animals
+irina@irina-linux:~$ mv 'Друзья человека' animals/'Друзья человека'
+irina@irina-linux:~$ ls -la animals
+итого 12
+drwxrwxr-x  2 irina irina 4096 кра 18 19:04  .
+drwxr-x--- 26 irina irina 4096 кра 18 19:04  ..
+-rw-rw-r--  1 irina irina   76 кра 18 19:01 'Друзья человека'
+irina@irina-linux:~$
+irina@irina-linux:~$ sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 3A79BD29
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+Executing: /tmp/apt-key-gpghome.ly0qIQtzsT/gpg.1.sh --keyserver pgp.mit.edu --recv-keys 3A79BD29
+
+^C
+gpg: signal 2 caught ... exiting
+irina@irina-linux:~$ sudo echo 'deb http://repo.mysql.com/apt/ubuntu/ bionic mysql-8.0' > /etc/apt/sources
+-bash: /etc/apt/sources: Отказано в доступе
+irina@irina-linux:~$ sudo apt update
+Сущ:1 http://by.archive.ubuntu.com/ubuntu jammy InRelease
+Пол:2 http://by.archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]
+Пол:3 http://by.archive.ubuntu.com/ubuntu jammy-backports InRelease [108 kB]
+Пол:4 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Пол:5 https://download.docker.com/linux/ubuntu jammy InRelease [48,9 kB]
+Пол:6 http://by.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [1.026 kB]
+Пол:7 http://by.archive.ubuntu.com/ubuntu jammy-updates/main i386 Packages [477 kB]
+Пол:8 http://by.archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [216 kB]
+Пол:9 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages [16,1 kB]
+Пол:10 http://by.archive.ubuntu.com/ubuntu jammy-updates/main amd64 DEP-11 Metadata [102 kB]
+Пол:11 http://by.archive.ubuntu.com/ubuntu jammy-updates/main amd64 c-n-f Metadata [14,0 kB]
+Пол:12 http://by.archive.ubuntu.com/ubuntu jammy-updates/restricted i386 Packages [28,4 kB]
+Пол:13 http://by.archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [812 kB]
+Пол:14 http://by.archive.ubuntu.com/ubuntu jammy-updates/restricted Translation-en [127 kB]
+Пол:15 http://by.archive.ubuntu.com/ubuntu jammy-updates/universe i386 Packages [608 kB]
+Пол:16 http://by.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [902 kB]
+Пол:17 http://security.ubuntu.com/ubuntu jammy-security/main i386 Packages [280 kB]
+Пол:18 http://by.archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [181 kB]
+Пол:19 http://by.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 DEP-11 Metadata [269 kB]
+Пол:20 http://by.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 c-n-f Metadata [18,6 kB]
+Пол:21 http://by.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [24,1 kB]
+Пол:22 http://by.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 DEP-11 Metadata [940 B]
+Пол:23 http://by.archive.ubuntu.com/ubuntu jammy-backports/main amd64 DEP-11 Metadata [7.980 B]
+Пол:24 http://by.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 DEP-11 Metadata [12,5 kB]
+Пол:25 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [731 kB]
+Пол:26 http://security.ubuntu.com/ubuntu jammy-security/main amd64 DEP-11 Metadata [41,5 kB]
+Пол:27 http://security.ubuntu.com/ubuntu jammy-security/main amd64 c-n-f Metadata [9.028 B]
+Пол:28 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [717 kB]
+Пол:29 http://security.ubuntu.com/ubuntu jammy-security/universe i386 Packages [520 kB]
+Пол:30 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 DEP-11 Metadata [18,5 kB]
+Пол:31 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 c-n-f Metadata [14,2 kB]
+Получено 7.557 kB за 4с (1.721 kB/s)
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово
+Может быть обновлено 206 пакетов. Запустите «apt list --upgradable» для их показа.
+W: https://download.docker.com/linux/ubuntu/dists/jammy/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+irina@irina-linux:~$ sudo apt install mysql-common
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово
+Уже установлен пакет mysql-common самой новой версии (5.8+1.0.8).
+mysql-common помечен как установленный вручную.
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 206 пакетов не обновлено.
+irina@irina-linux:~$
+irina@irina-linux:~$ apt download lftp
+Пол:1 http://by.archive.ubuntu.com/ubuntu jammy/main amd64 lftp amd64 4.9.2-1build1 [720 kB]
+Игн:1 http://by.archive.ubuntu.com/ubuntu jammy/main amd64 lftp amd64 4.9.2-1build1
+Пол:1 http://by.archive.ubuntu.com/ubuntu jammy/main amd64 lftp amd64 4.9.2-1build1 [720 kB]
+Игн:1 http://by.archive.ubuntu.com/ubuntu jammy/main amd64 lftp amd64 4.9.2-1build1
+Пол:1 http://by.archive.ubuntu.com/ubuntu jammy/main amd64 lftp amd64 4.9.2-1build1 [720 kB]
+Игн:1 http://by.archive.ubuntu.com/ubuntu jammy/main amd64 lftp amd64 4.9.2-1build1
+Пол:1 http://by.archive.ubuntu.com/ubuntu jammy/main amd64 lftp amd64 4.9.2-1build1 [720 kB]
+Ошб:1 http://by.archive.ubuntu.com/ubuntu jammy/main amd64 lftp amd64 4.9.2-1build1
+  Ошибка записи в файл - write (28: На устройстве не осталось свободного места) [IP: 82.209.230.71 80]
+E: Не удалось получить http://by.archive.ubuntu.com/ubuntu/pool/main/l/lftp/lftp_4.9.2-1build1_amd64.deb  Ошибка записи в файл - write (28: На устройстве не осталось свободного места) [IP: 82.209.230.71 80]
+irina@irina-linux:~$ sudo dpkg -i lftp_4.9.2-1build1_amd64.deb
+dpkg-deb: ошибка: 'lftp_4.9.2-1build1_amd64.deb' is not a Debian format archive
+dpkg: ошибка при обработке архива lftp_4.9.2-1build1_amd64.deb (--install):
+ dpkg-deb --control subprocess returned error exit status 2
+При обработке следующих пакетов произошли ошибки:
+ lftp_4.9.2-1build1_amd64.deb
+irina@irina-linux:~$ sudo dpkg -r lftp
+dpkg: предупреждение: игнорируется запрос на удаление неустановленного пакета lftp
+irina@irina-linux:~$ history
+  140  cat > 'Домашние животные'
+  141  cat 'Домашние животные'
+  142  cat > 'Вьючие животные'
+  143  cat  'Вьючие животные'
+  144  cat 'Вьючие животные' 'Домашние животные' > 'Животные'
+  145  cat 'Животные'
+  146  mv 'Животные' 'Друзья человека'
+  147  mkdir animals
+  148  mv 'Друзья человека' animals/'Друзья человека'
+  149  ls -la animals
+  150  sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 3A79BD29
+  151  sudo echo 'deb http://repo.mysql.com/apt/ubuntu/ bionic mysql-8.0' > /etc/apt/sources
+  152  sudo apt update
+  153  sudo apt install mysql-common
+  154  apt download lftp
+  155  sudo dpkg -i lftp_4.9.2-1build1_amd64.deb
+  156  sudo dpkg -r lftp
+  157  history
