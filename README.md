@@ -183,11 +183,12 @@ LEFT JOIN pack_animals ON pack_animals.id = donkeys.animal_kind_id
 LEFT JOIN animals ON animals.id=pack_animals.animal_type_id;   
 
 
-
+## 2. Задание Linux
+1. Используя команду cat в терминале операционной системы Linux, создать два файла Домашние животные (заполнив файл собаками, кошками, хомяками) и Вьючные животными заполнив файл Лошадьми, верблюдами и ослы), а затем объединить их. Просмотреть содержимое созданного файла. Переименовать файл, дав ему новое имя (Друзья человека).   
 irina@irina-linux:~$ cat > 'Домашние животные'
 собаки
 кошки
-хомяки ^C
+хомяки
 irina@irina-linux:~$ cat 'Домашние животные'
 собаки
 кошки
@@ -195,7 +196,6 @@ irina@irina-linux:~$ cat 'Домашние животные'
 лошади
 верблюды
 ослы
-^C
 irina@irina-linux:~$ cat  'Вьючие животные'
 лошади
 верблюды
@@ -208,7 +208,7 @@ irina@irina-linux:~$ cat 'Животные'
 собаки
 кошки
 хомяки irina@irina-linux:~$ mv 'Животные' 'Друзья человека'
-irina@irina-linux:~$
+2. Создать директорию, переместить файл туда.  
 irina@irina-linux:~$ mkdir animals
 irina@irina-linux:~$ mv 'Друзья человека' animals/'Друзья человека'
 irina@irina-linux:~$ ls -la animals
@@ -216,15 +216,9 @@ irina@irina-linux:~$ ls -la animals
 drwxrwxr-x  2 irina irina 4096 кра 18 19:04  .
 drwxr-x--- 26 irina irina 4096 кра 18 19:04  ..
 -rw-rw-r--  1 irina irina   76 кра 18 19:01 'Друзья человека'
-irina@irina-linux:~$
+3. Подключить дополнительный репозиторий MySQL. Установить любой пакет из этого репозитория.  
 irina@irina-linux:~$ sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 3A79BD29
-Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
-Executing: /tmp/apt-key-gpghome.ly0qIQtzsT/gpg.1.sh --keyserver pgp.mit.edu --recv-keys 3A79BD29
-
-^C
-gpg: signal 2 caught ... exiting
 irina@irina-linux:~$ sudo echo 'deb http://repo.mysql.com/apt/ubuntu/ bionic mysql-8.0' > /etc/apt/sources
--bash: /etc/apt/sources: Отказано в доступе
 irina@irina-linux:~$ sudo apt update
 Сущ:1 http://by.archive.ubuntu.com/ubuntu jammy InRelease
 Пол:2 http://by.archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]
@@ -262,7 +256,6 @@ irina@irina-linux:~$ sudo apt update
 Построение дерева зависимостей… Готово
 Чтение информации о состоянии… Готово
 Может быть обновлено 206 пакетов. Запустите «apt list --upgradable» для их показа.
-W: https://download.docker.com/linux/ubuntu/dists/jammy/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
 irina@irina-linux:~$ sudo apt install mysql-common
 Чтение списков пакетов… Готово
 Построение дерева зависимостей… Готово
@@ -270,26 +263,21 @@ irina@irina-linux:~$ sudo apt install mysql-common
 Уже установлен пакет mysql-common самой новой версии (5.8+1.0.8).
 mysql-common помечен как установленный вручную.
 Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 206 пакетов не обновлено.
-irina@irina-linux:~$
+4. Установить и удалить deb-пакет с помощью dpkg.  
 irina@irina-linux:~$ apt download lftp
-Пол:1 http://by.archive.ubuntu.com/ubuntu jammy/main amd64 lftp amd64 4.9.2-1build1 [720 kB]
-Игн:1 http://by.archive.ubuntu.com/ubuntu jammy/main amd64 lftp amd64 4.9.2-1build1
-Пол:1 http://by.archive.ubuntu.com/ubuntu jammy/main amd64 lftp amd64 4.9.2-1build1 [720 kB]
-Игн:1 http://by.archive.ubuntu.com/ubuntu jammy/main amd64 lftp amd64 4.9.2-1build1
-Пол:1 http://by.archive.ubuntu.com/ubuntu jammy/main amd64 lftp amd64 4.9.2-1build1 [720 kB]
-Игн:1 http://by.archive.ubuntu.com/ubuntu jammy/main amd64 lftp amd64 4.9.2-1build1
-Пол:1 http://by.archive.ubuntu.com/ubuntu jammy/main amd64 lftp amd64 4.9.2-1build1 [720 kB]
-Ошб:1 http://by.archive.ubuntu.com/ubuntu jammy/main amd64 lftp amd64 4.9.2-1build1
-  Ошибка записи в файл - write (28: На устройстве не осталось свободного места) [IP: 82.209.230.71 80]
-E: Не удалось получить http://by.archive.ubuntu.com/ubuntu/pool/main/l/lftp/lftp_4.9.2-1build1_amd64.deb  Ошибка записи в файл - write (28: На устройстве не осталось свободного места) [IP: 82.209.230.71 80]
+Get:1 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 lftp amd64 4.9.2-1build1 [720 kB]
+Fetched 720 kB in 0s (3,197 kB/s)
 irina@irina-linux:~$ sudo dpkg -i lftp_4.9.2-1build1_amd64.deb
-dpkg-deb: ошибка: 'lftp_4.9.2-1build1_amd64.deb' is not a Debian format archive
-dpkg: ошибка при обработке архива lftp_4.9.2-1build1_amd64.deb (--install):
- dpkg-deb --control subprocess returned error exit status 2
-При обработке следующих пакетов произошли ошибки:
- lftp_4.9.2-1build1_amd64.deb
+(Reading database ... 74009 files and directories currently installed.)
+Preparing to unpack lftp_4.9.2-1build1_amd64.deb ...
+Unpacking lftp (4.9.2-1build1) over (4.9.2-1build1) ...
+Setting up lftp (4.9.2-1build1) ...
+Processing triggers for man-db (2.10.2-1) ...
 irina@irina-linux:~$ sudo dpkg -r lftp
-dpkg: предупреждение: игнорируется запрос на удаление неустановленного пакета lftp
+(Reading database ... 74009 files and directories currently installed.)
+Removing lftp (4.9.2-1build1) ...
+Processing triggers for man-db (2.10.2-1) ...
+5. Выложить историю команд в терминале ubuntu.  
 irina@irina-linux:~$ history
   140  cat > 'Домашние животные'
   141  cat 'Домашние животные'
